@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Challenge</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ffe0ec, #ffe8d6);
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+    }
+
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      max-width: 500px;
+      margin: auto;
+    }
+
+    h1 {
+      color: #e75480;
+      font-size: 24px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    .question {
+      margin: 20px 0;
+      text-align: left;
+    }
+
+    label {
+      font-size: 15px;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #ff69b4;
+      border: none;
+      padding: 12px 20px;
+      color: white;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 20px;
+      width: 100%;
+      max-width: 300px;
+    }
+
+    button:hover {
+      background-color: #ff85c1;
+    }
+
+    .error {
+      color: red;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    #hintBtn {
+      display: none;
+      background-color: #6c63ff;
+    }
+
+    #hintBtn:hover {
+      background-color: #817bff;
+    }
+
+    @media (max-width: 500px) {
+      .container {
+        padding: 15px;
+      }
+
+      input[type="text"] {
+        font-size: 14px;
+        padding: 8px;
+      }
+
+      h1 {
+        font-size: 20px;
+      }
+
+      button {
+        font-size: 15px;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Halo Cinta! 💖</h1>
+  <p>Jawab 3 pertanyaan ini dulu ya, baru kamu bisa lanjut 😍</p>
+
+  <div class="question">
+    <label>1. Tanggal berapa kita jadian?</label>
+    <input type="text" id="q1">
+  </div>
+
+  <div class="question">
+    <label>2. Warna favorit aku?</label>
+    <input type="text" id="q2">
+  </div>
+
+  <div class="question">
+    <label>3. Apa makanan favorit aku?</label>
+    <input type="text" id="q3">
+  </div>
+
+  <button onclick="checkAnswers()">Lanjut</button>
+  <div class="error" id="error"></div>
+  <button id="hintBtn" onclick="showHint()">Lihat Petunjuk 🔍</button>
+</div>
+
+<script>
+  function checkAnswers() {
+    const q1 = document.getElementById("q1").value.toLowerCase().trim();
+    const q2 = document.getElementById("q2").value.toLowerCase().trim();
+    const q3 = document.getElementById("q3").value.toLowerCase().trim();
+
+    // Jawaban bisa kamu sesuaikan
+    if (q1 === "12 januari 2025" && q2 === "biru" && q3 === "nasi goreng") {
+      window.location.href = "https://wa.me/6283182117492?text=Aku%20berhasil%20jawab%20semuanya!%20Hehe%20❤️";
+    } else {
+      document.getElementById("error").innerText = "Yah, ada yang salah nih 🥺 Coba lagi ya!";
+      document.getElementById("hintBtn").style.display = "inline-block";
+    }
+  }
+
+  function showHint() {
+    alert("✨ Petunjuk:\n1. Kita jadian bulan pertama 💘\n2. Warna laut \n3. Olahannya dengan makanan pokok");
+  }
+</script>
+
+</body>
+</html>
